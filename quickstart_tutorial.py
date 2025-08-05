@@ -264,6 +264,44 @@ with torch.no_grad():
     predicted, actual = classes[pred[0].argmax(0)], classes[y]
     print(f'Predicted: "{predicted}", Actual: "{actual}"')
 
+# Add prediction for custom image from test_images folder
+import os
+from PIL import Image
+import torchvision.transforms as transforms
+
+# Define transform to match FashionMNIST format (28x28 grayscale, normalized)
+transform = transforms.Compose([
+    transforms.Grayscale(num_output_channels=1),  # Convert to grayscale
+    transforms.Resize((28, 28)),                  # Resize to 28x28
+    transforms.ToTensor(),                        # Convert to tensor
+])
+
+# Load and predict on custom image
+test_images_folder = "test_images"
+if os.path.exists(test_images_folder):
+    # Get first image file from the folder
+    image_files = [f for f in os.listdir(test_images_folder) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
+    
+    if image_files:
+        image_path = os.path.join(test_images_folder, image_files[0])
+        print(f"\nTesting with custom image: {image_path}")
+        
+        # Load and preprocess the image
+        custom_image = Image.open(image_path)
+        custom_tensor = transform(custom_image).unsqueeze(0)  # Add batch dimension
+        
+        model.eval()
+        with torch.no_grad():
+            custom_tensor = custom_tensor.to(device)
+            custom_pred = model(custom_tensor)
+            predicted_class = classes[custom_pred[0].argmax(0)]
+            confidence = torch.nn.functional.softmax(custom_pred[0], dim=0).max().item()
+            print(f'Custom image predicted: "{predicted_class}" (confidence: {confidence:.2%})')
+    else:
+        print(f"No image files found in {test_images_folder} folder")
+else:
+    print(f"Folder {test_images_folder} not found")
+
 """Read more about [Saving & Loading your
 model](saveloadrun_tutorial.html).
 
