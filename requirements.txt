@@ -2,3 +2,6 @@ torch
 torchvision 
 torchaudio
 --index-url https://download.pytorch.org/whl/cpu
+matplotlib
+opencv-python
+opencv-python-headless
