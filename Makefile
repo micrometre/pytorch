@@ -4,4 +4,4 @@ install:
 	pip install -r requirements.txt
 # Clean generated files
 clean:
-	rm -rf outputs dataset checkpoints raw_data
+	rm -rf data
