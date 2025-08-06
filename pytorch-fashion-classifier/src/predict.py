@@ -60,7 +60,7 @@ def show_prediction(image_tensor, predicted_class, actual_class, confidence):
     # Save the prediction image
     os.makedirs('predictions', exist_ok=True)
     plt.savefig('predictions/prediction_result.png', bbox_inches='tight', dpi=150)
-    plt.show()
+    #plt.show()
 
 def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
