@@ -61,6 +61,47 @@ To make predictions on custom images, place your images in the `test_images` dir
 python src/predict.py
 ```
 
+## Creating a Custom Dataset Example
+
+To test the model with your own images, you can create a basic custom dataset. Here's how to prepare and organize your images:
+
+### Dataset Structure
+
+Create the following directory structure for your custom dataset:
+
+```
+custom_dataset/
+├── t-shirt/
+│   ├── tshirt_001.jpg
+│   ├── tshirt_002.png
+│   └── ...
+├── trouser/
+│   ├── trouser_001.jpg
+│   ├── trouser_002.png
+│   └── ...
+├── pullover/
+│   └── ...
+└── ... (other fashion categories)
+```
+
+### Image Requirements
+
+For best results with the trained FashionMNIST model:
+
+- **Format**: JPG, PNG, or other common image formats
+- **Size**: Images will be automatically resized to 28x28 pixels
+- **Color**: Grayscale preferred (color images will be converted)
+- **Background**: Simple, clean backgrounds work best
+- **Content**: Single fashion item per image, clearly visible
+
+
+### Tips for Better Results
+
+- **Image Quality**: Use clear, well-lit images
+- **Single Items**: Ensure only one fashion item is visible per image
+- **Similar Style**: Images similar to FashionMNIST style work best (simple, centered items)
+- **Preprocessing**: Always apply the same preprocessing as the training data
+
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
