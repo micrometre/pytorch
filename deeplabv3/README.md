@@ -45,13 +45,8 @@ requests>=2.25.0
 
 ## 🛠️ Installation
 
-1. **Clone the repository**:
-   ```bash
-   git clone <repository-url>
-   cd deeplabv3
-   ```
 
-2. **Install dependencies**:
+1. **Install dependencies**:
    ```bash
    pip install torch torchvision matplotlib pillow numpy requests
    ```
@@ -61,7 +56,7 @@ requests>=2.25.0
    conda install pytorch torchvision matplotlib pillow numpy requests -c pytorch
    ```
 
-3. **Launch Jupyter Notebook**:
+2. **Launch Jupyter Notebook**:
    ```bash
    jupyter notebook deeplabv3_basic_example.ipynb
    ```

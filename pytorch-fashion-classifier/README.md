@@ -23,19 +23,13 @@ pytorch-fashion-classifier
 
 ## Setup Instructions
 
-1. **Clone the repository:**
-   ```
-   git clone <repository-url>
-   cd pytorch-fashion-classifier
-   ```
-
-2. **Install the required packages:**
+1. **Install the required packages:**
    It is recommended to create a virtual environment before installing the dependencies.
    ```
    pip install -r requirements.txt
    ```
 
-3. **Download the dataset:**
+32 **Download the dataset:**
    The dataset will be automatically downloaded when you run the training script.
 
 ## Usage
